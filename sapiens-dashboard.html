@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAPIENS — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dashboard-container{max-width:600px;margin:40px auto;padding:20px;background:white;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.06)}
+    h2{color:var(--primary);margin-bottom:10px}
+    select, button{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:16px;font-size:16px}
+    button{background:var(--primary);color:white;border:none;cursor:pointer;font-weight:600}
+    .notes{margin-top:20px;padding:16px;background:#f4fdf7;border-radius:10px;display:none}
+    .notes h3{margin-bottom:12px}
+    .notes p{margin:4px 0;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Periodo Académico</h2>
+    <p>Seleccionar periodo:</p>
+
+    <select id="periodo">
+      <option value="">--Selecciona un semestre--</option>
+      <option value="5">Semestre 5</option>
+      <option value="4">Semestre 4</option>
+      <option value="3">Semestre 3</option>
+    </select>
+
+    <button id="btnSeleccionar">Seleccionar</button>
+
+    <div class="notes" id="notas">
+      <h3>Notas del periodo seleccionado:</h3>
+      <p>Matemáticas: 5.0</p>
+      <p>Física: 4.5</p>
+      <p>Química: 4.0</p>
+      <p>Historia: 4.8</p>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btnSeleccionar');
+    const periodoSelect = document.getElementById('periodo');
+    const notasDiv = document.getElementById('notas');
+
+    btn.addEventListener('click', () => {
+      const periodo = periodoSelect.value;
+      if(!periodo){
+        alert('Por favor selecciona un semestre.');
+        return;
+      }
+
+      // Aquí podrías personalizar las notas por semestre
+      // Por ahora se muestra la misma tabla
+      notasDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+

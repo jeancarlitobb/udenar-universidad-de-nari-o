@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAPIENS — Selección de Periodo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.dashboard-container{
+  max-width:600px;margin:40px auto;padding:20px;background:white;border-radius:12px;
+  box-shadow:0 8px 20px rgba(2,6,23,0.06)
+}
+h2{color:var(--primary);margin-bottom:10px}
+select, button{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:16px;font-size:16px
+}
+button{background:var(--primary);color:white;border:none;cursor:pointer;font-weight:600}
+</style>
+</head>
+<body>
+<div class="dashboard-container">
+  <h2>Periodo Académico</h2>
+  <p>Seleccionar periodo:</p>
+
+  <select id="periodo">
+    <option value="">--Selecciona un semestre--</option>
+    <option value="5">Semestre 5</option>
+    <option value="4">Semestre 4</option>
+    <option value="3">Semestre 3</option>
+  </select>
+
+  <button id="btnContinuar">Continuar</button>
+</div>
+
+<script>
+const btn = document.getElementById('btnContinuar');
+const periodoSelect = document.getElementById('periodo');
+
+btn.addEventListener('click', () => {
+  const semestre = periodoSelect.value;
+  if(!semestre){
+    alert('Por favor selecciona un semestre.');
+    return;
+  }
+  // Redirige a la página de notas, pasando el semestre como parámetro
+  window.location.href = `sapiens-notas.html?semestre=${semestre}`;
+});
+</script>
+</body>
+</html>
